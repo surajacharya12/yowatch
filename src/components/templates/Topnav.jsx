@@ -65,7 +65,7 @@ export const Topnav = ({ menuhendlaer, menuset }) => {
                   alt=""
                 />
                 <span className=" text-[2vw] sm:text-[3vw]">
-                  {/* {s.original_title || s.name || s.title || s.original_name} */}
+                  {}
                   {s.title || s.name || s.original_title || s.original_name}
                   <br />
                   {s.release_date ? s.release_date : ""}

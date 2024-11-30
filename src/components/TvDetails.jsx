@@ -1,6 +1,6 @@
 import React, { startTransition, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncloadtv, removetv } from "./store/actions/tvActions";
+import { asyncloadmovie, removemovie } from "./store/actions/movieActions";
 import {
   Link,
   Outlet,
@@ -11,16 +11,16 @@ import {
 import Loading from "./Loading";
 import HorizontalCards from "./templates/HorizontalCards";
 
-export const TvDetails = () => {
+const MovieDetails = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { info } = useSelector((state) => state.tv);
+  const { info } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(asyncloadtv(id));
+    dispatch(asyncloadmovie(id));
     return () => {
-      dispatch(removetv());
+      dispatch(removemovie());
     };
   }, [id]);
   return info ? (
@@ -36,12 +36,12 @@ export const TvDetails = () => {
       }}
       className="w-full relative overflow-x-hidden p-5"
     >
-      {/* part 1 navigation */}
-      <nav className="w-full h-[10vh] sm:h-[5vh] text-zinc-100 flex  gap-7 items-center font-semibold text-1xl  ">
+      {}
+      <nav className="w-full h-[10vh] sm:mb-3 sm:h-[5vw]  text-zinc-100 flex  gap-7 items-center font-semibold text-1xl  ">
         <Link
-        to={"/tv"}
-          // onClick={() => navigate(-1)}
-          className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
+         
+          to={`/movie`}
+          className="hover:text-[#ffffdd]  hover:bg-black  text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
         ></Link>
         <Link target="_blank" to={info.detail.homepage}>
           <i className="hover:text-yellow-300 duration-200 ri-external-link-fill"></i>
@@ -63,7 +63,7 @@ export const TvDetails = () => {
           <i className="hover:text-yellow-300 duration-200 ri-home-4-line"></i>
         </Link>
       </nav>
-      {/* part 2 poster details */}
+      {}
       <div className="w-full h-[70vh] sm:h-[50vh]  flex sm:block">
         <div className="w-[30%] sm:w-full h-full flex items-center justify-center">
           <img
@@ -74,14 +74,16 @@ export const TvDetails = () => {
             alt=""
           />
         </div>
-        <div className="w-[70%] sm:hidden h-full text-white">
+        <div className="w-[70%]  sm:hidden h-full text-white">
           <h1 className="text-4xl mb-2 font-black">
-            {info.detail.original_title ||
+            {}
+               {info.detail.title ||
+              info.detail.original_title ||
               info.detail.name ||
-              info.detail.title ||
               info.detail.original_name}
+             
             <small className="text-xl font-semibold text-zinc-300">
-              ({info.detail.first_air_date.split("-")[0]})
+              ({info.detail.release_date.split("-")[0]})
             </small>
           </h1>
           <div className="w-full h-[10%] flex gap-3 text-zinc-100 items-center">
@@ -93,7 +95,7 @@ export const TvDetails = () => {
             <h1 className="font-bold leading-none ">
               User <br /> Score
             </h1>
-            <h1>{info.detail.first_air_date}</h1>
+            <h1>{info.detail.release_date}</h1>
             <h1>{info.detail.genres.map((g, i) => g.name).join(" , ")}</h1>
             <h1>{info.detail.runtime}min</h1>
           </div>
@@ -103,7 +105,7 @@ export const TvDetails = () => {
           <h2 className="text-2xl  font-bold">overview</h2>
           <p className="text-sm leading-none mb-3">{info.detail.overview}</p>
 
-          <h2 className="text-2xl font-bold">tv Translated</h2>
+          <h2 className="text-2xl font-bold">Movie Translated</h2>
           <p className="text-sm leading-none mb-5">
             {info.translations.join(" , ")}
           </p>
@@ -121,68 +123,84 @@ export const TvDetails = () => {
             <i className=" mr-2 ri-play-fill"></i>
             Play <sub>Link 1</sub>
           </Link>
+          <Link
+            className=" ml-3 px-5 py-4 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
+            to={`${pathname}/playertwo`}
+          >
+            <i className=" mr-2 ri-play-fill"></i>
+            Play <sub>Link 2</sub>
+          </Link>
           <h1 className="text-red-400 font-semibold mt-2">Note : Connect <a className="text-blue-600" target="_blank" href="https://1.1.1.1/">DNS</a> , If Link Not Working. </h1>
         </div>
       </div>
-      <div className=" hidden sm:block w-full  text-white">
-          <h1 className="text-4xl sm:text-5xl mb-2  sm:mb-5 font-black">
-            {info.detail.original_title ||
+      <div className=" hidden sm:block w-full mb-5  text-white">
+        <h1 className="text-4xl sm:text-2xl mb-2 font-black">
+          {}
+             {info.detail.title ||
+              info.detail.original_title ||
               info.detail.name ||
-              info.detail.title ||
               info.detail.original_name}
-            <small className="text-xl font-semibold text-zinc-300">
-              ({info.detail.first_air_date.split("-")[0]})
-            </small>
-          </h1>
-          <div className="w-full h-[25vh] gap-3 text-zinc-100 items-center">
-            <div className="w-full gap-3 flex items-center">
-            {info.detail.vote_average && (
-              <div className=" text-white text-[1.3vw] sm:text-[4vw] bg-yellow-500 w-[3vw] h-[3vw]  sm:w-[10vw] sm:h-[10vw] flex items-center justify-center rounded-full">
+          <small className="text-xl font-semibold text-zinc-300">
+            ({info.detail.release_date.split("-")[0]})
+          </small>
+        </h1>
+        <div className="w-full h-[10%] sm:h-[25%] mt-3 sm:block gap-3 text-zinc-100 items-center">
+          {info.detail.vote_average && (
+            <div className="w-full flex gap-3 items-center">
+              <div className=" text-white  text-[1.3vw] sm:text-[4vw] bg-yellow-500 w-[3vw] h-[3vw] sm:w-[10vw] sm:h-[10vw] flex items-center justify-center rounded-full">
                 {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
               </div>
-            )}
-            <h1 className="font-bold  sm:text-2xl leading-none ">
-              User <br /> Score
-            </h1>
+              <h1 className="font-bold sm:text-2xl  leading-none ">
+            User <br /> Score
+          </h1>
             </div>
-            
-            <h1 className="text-2xl">{info.detail.first_air_date}</h1>
-            <h1 className="text-2xl">{info.detail.genres.map((g, i) => g.name).join(" , ")}</h1>
-            {info.detail.runtime && <h1 className="text-2xl">{info.detail.runtime}min</h1> }
-          </div>
-          <h3 className="text-xl sm:text-2xl mt-2 italic font-semibold">
-            {info.detail.tagline}
-          </h3>
-          <h2 className="text-2xl sm:text-3xl font-bold">overview</h2>
-          <p className="text-sm sm:text-xl sm:leading-none leading-none mb-3">{info.detail.overview}</p>
+          )}
+        
+          <h1 className="text-2xl">{info.detail.release_date}</h1>
+          <h1 className="text-2xl">{info.detail.genres.map((g, i) => g.name).join(" , ")}</h1>
+          {info.detail.runtime && <h1 className="text-2xl">{info.detail.runtime}min</h1> }
+          
+        </div>
+        <h3 className="text-xl sm:text-2xl mt-2 italic font-semibold">
+          {info.detail.tagline}
+        </h3>
+        <h2 className="text-2xl  sm:text-3xl font-bold">overview</h2>
+        <p className="text-sm sm:text-xl sm:leading-none leading-none mb-3">{info.detail.overview}</p>
 
-          <h2 className="text-2xl sm:text-3xl font-bold">tv Translated</h2>
-          <p className="text-sm sm:text-xl sm:leading-none leading-none mb-5">
-            {info.translations.join(" , ")}
-          </p>
-          <Link
-            className="px-5 py-4 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
-            to={`${pathname}/trailer`}
-          >
-            <i className=" mr-2 ri-play-fill"></i>
-            Play Trailer
-          </Link>
-          <Link
-            className=" ml-3 px-5 py-4 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
+        <h2 className="text-2xl sm:text-3xl font-bold">Movie Translated</h2>
+        <p className="text-sm sm:text-xl sm:leading-none leading-none mb-5">
+          {info.translations.join(" , ")}
+        </p>
+        <Link
+          className="px-3 mb-2 py-2 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
+          to={`${pathname}/trailer`}
+        >
+          <i className=" mr-2 ri-play-fill"></i>
+          Play Trailer
+        </Link>
+        <Link
+            className=" ml-3 px-3 py-2 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
             to={`${pathname}/player`}
           >
             <i className=" mr-2 ri-play-fill"></i>
             Play <sub>Link 1</sub>
           </Link>
-          <h1 className="text-red-400 font-semibold mt-2">Note : Connect <a className="text-blue-600" target="_blank" href="https://1.1.1.1/">DNS</a> , If Link Not Working. </h1>
-        </div>
-      {/* part 3 watch providers */}
-      {/* <div className="w-full h-[30vh] bg-blue-300"> */}
+          <Link
+            className=" ml-3 px-3 py-2 inline-block bg-[#ffffdd] rounded-md text-black font-semibold"
+            to={`${pathname}/playertwo`}
+          >
+            <i className=" mr-2 ri-play-fill"></i>
+            Play <sub>Link 2</sub>
+          </Link>
+          <h1 className="text-red-400 font-semibold mt-2">Note : Connect <a className="text-blue-600" target="_blank" href="https://1.1.1.1/">DNS</a>  , If Link Not Working. </h1>
+      </div>
+      {}
+      {}
       {info.watchproviders &&
       info.watchproviders.flatrate &&
       info.watchproviders.flatrate ? (
-        <div className="w-full h-[10%] flex gap-3 items-center">
-          <h1 className="font-semibold  flex justify-end text-white">
+        <div className="w-full h-[10%]  flex gap-3 items-center">
+          <h1 className="font-semibold sm:ml-3 flex justify-end text-white">
             Available On Platforms
           </h1>
           {info.watchproviders &&
@@ -200,11 +218,12 @@ export const TvDetails = () => {
       ) : (
         ""
       )}
+
       {info.watchproviders &&
       info.watchproviders.rent &&
       info.watchproviders.rent ? (
         <div className="w-full h-[10%] flex gap-3 items-center">
-          <h1 className="font-semibold w-[15%] flex justify-end text-white">
+          <h1 className="font-semibold w-[15%] sm:ml-3 flex justify-end text-white">
             Available On Rent
           </h1>
           {info.watchproviders &&
@@ -222,11 +241,12 @@ export const TvDetails = () => {
       ) : (
         ""
       )}
+
       {info.watchproviders &&
       info.watchproviders.buy &&
       info.watchproviders.buy ? (
         <div className="w-full h-[10%] flex gap-3 items-center">
-          <h1 className="font-semibold w-[15%] flex justify-end text-white">
+          <h1 className="font-semibold w-[15%] sm:ml-3 flex justify-end text-white">
             Available To Buy
           </h1>
           {info.watchproviders &&
@@ -244,18 +264,8 @@ export const TvDetails = () => {
       ) : (
         ""
       )}
-
-      {/* </div> */}
-
-      {/* part 4 sesons */}
-
-      <div className="mt-5">
-        <hr />
-        <h1 className="text-2xl font-semibold text-white mt-3 ">Seasons</h1>
-        <HorizontalCards data={info.detail.seasons} />
-      </div>
-
-      {/* part 4 recommendations and similar  */}
+      {}
+      {}
 
       <div className="mt-5">
         <hr />
@@ -269,19 +279,12 @@ export const TvDetails = () => {
               : info.similar
           }
         />
-        <Outlet />
+        <Outlet/>
       </div>
-      <div className="flex  gap-3 text-2xl text-white  ">
-          <h1>MADE BY ❤️ HARSH PATEL</h1>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/patelharsh.in/"
-          >
-            <i className=" ri-instagram-fill"></i>
-          </a>
-        </div>
+      
     </div>
   ) : (
     <Loading />
   );
 };
+export default MovieDetails;

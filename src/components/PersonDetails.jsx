@@ -25,24 +25,24 @@ export const PersonDetails = () => {
       <nav className="w-full h-[10vh]  text-zinc-100 flex  gap-7 items-center font-semibold px-5 text-1xl  ">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
+          className="hover:text-[#ffffdd]  hover:bg-black  text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-900 ri-arrow-left-line"
         ></Link>
 
         <Link to={`/`}>
           <i className="hover:text-yellow-300 duration-200 ri-home-4-line"></i>
         </Link>
       </nav>
-      {/* part 2  */}
+      {}
       <div className="w-full flex sm:block ">
-        {/* part 2 left  */}
-        <div className="w-[25%] sm:w-full pl-[5%] pt-5 flex flex-col items-start text-zinc-300 ">
+        {}
+        <div className="w-[25%] sm:w-full pl-[5%] pt-5 flex flex-col items-start text-zinc-900 ">
           <img
             className=" w-[70%]  shadow-md rounded "
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
           <hr className="w-[70%] mt-5 " />
-          {/* external links */}
+          {}
           <div className="text-2xl ml-5  text-white flex gap-3">
             <Link
               target="_blank"
@@ -100,7 +100,7 @@ export const PersonDetails = () => {
             {info.detail.also_known_as.join(" , ")}
           </p>
         </div>
-        {/* part 3 right information */}
+        {}
         <div className="w-[75%] sm:w-full  p-5 text-zinc-200 ">
           <h1 className=" text-5xl font-black mb-3 ">{info.detail.name}</h1>
           {info.detail.biography && (

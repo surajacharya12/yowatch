@@ -9,7 +9,7 @@ import { Dropdown } from "./templates/Dropdown";
 
 
 export const Home = () => {
-  document.title = "THE ULTIMATE | Homepage";
+  document.title = "Yo Watch| Homepage";
   const [wallpaper, setwallpaper] = useState(null);
   const [trending, settrendin] = useState(null);
   const [menuset, setmenuset] = useState(false)

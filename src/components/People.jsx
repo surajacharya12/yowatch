@@ -13,7 +13,7 @@ export const People = () => {
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
-  document.title = "THE ULTIMATE | person Shows " + category.toUpperCase();
+  document.title = "Yo Watch | person Shows " + category.toUpperCase();
 
   const GetPerson = async () => {
     try {
@@ -45,11 +45,11 @@ export const People = () => {
   }, [category]);
 
   return person.length > 0 ? (
-    <div className=" w-screen h-screen bg-[#303030]">
-      <div className=" px-5 w-full flex items-center bg-[#303030] ">
+    <div className=" w-screen h-screen bg-[#fdfcff]">
+      <div className=" px-5 w-full flex items-center bg-[#0c0116] ">
         <i
           onClick={() => navigate("/")}
-          className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
+          className="hover:text-[#ffffdd]  hover:bg-black  text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
         ></i>
         <h1 className="text-2xl font-semibold text-zinc-300">People</h1>
         <Topnav />

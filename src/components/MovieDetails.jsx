@@ -36,10 +36,10 @@ const MovieDetails = () => {
       }}
       className="w-full relative overflow-x-hidden p-5"
     >
-      {/* part 1 navigation */}
+      {}
       <nav className="w-full h-[10vh] sm:mb-3 sm:h-[5vw]  text-zinc-100 flex  gap-7 items-center font-semibold text-1xl  ">
         <Link
-          // onClick={() => navigate(-1)}
+          
           to={`/movie`}
           className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
         ></Link>
@@ -63,7 +63,7 @@ const MovieDetails = () => {
           <i className="hover:text-yellow-300 duration-200 ri-home-4-line"></i>
         </Link>
       </nav>
-      {/* part 2 poster details */}
+      {}
       <div className="w-full h-[70vh] sm:h-[50vh]  flex sm:block">
         <div className="w-[30%] sm:w-full h-full flex items-center justify-center">
           <img
@@ -76,10 +76,7 @@ const MovieDetails = () => {
         </div>
         <div className="w-[70%]  sm:hidden h-full text-white">
           <h1 className="text-4xl mb-2 font-black">
-            {/* {info.detail.original_title ||
-              info.detail.name ||
-              info.detail.title ||
-              info.detail.original_name} */}
+            {}
                {info.detail.title ||
               info.detail.original_title ||
               info.detail.name ||
@@ -138,10 +135,7 @@ const MovieDetails = () => {
       </div>
       <div className=" hidden sm:block w-full mb-5  text-white">
         <h1 className="text-4xl sm:text-2xl mb-2 font-black">
-          {/* {info.detail.original_title ||
-            info.detail.name ||
-            info.detail.title ||
-            info.detail.original_name} */}
+          {}
              {info.detail.title ||
               info.detail.original_title ||
               info.detail.name ||
@@ -200,8 +194,8 @@ const MovieDetails = () => {
           </Link>
           <h1 className="text-red-400 font-semibold mt-2">Note : Connect <a className="text-blue-600" target="_blank" href="https://1.1.1.1/">DNS</a>  , If Link Not Working. </h1>
       </div>
-      {/* part 3 watch providers */}
-      {/* <div className="w-full h-[30vh] text-white"> */}
+      {}
+      {}
       {info.watchproviders &&
       info.watchproviders.flatrate &&
       info.watchproviders.flatrate ? (
@@ -270,9 +264,9 @@ const MovieDetails = () => {
       ) : (
         ""
       )}
-      {/* </div> */}
+      {}
 
-      {/* part 4 recommendations and similar  */}
+      {}
 
       <div className="mt-5">
         <hr />
@@ -288,16 +282,7 @@ const MovieDetails = () => {
         />
         <Outlet/>
       </div>
-      <div className="flex  gap-3 text-2xl text-white  ">
-          <h1>MADE BY ❤️ HARSH PATEL</h1>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/patelharsh.in/"
-          >
-            <i className=" ri-instagram-fill"></i>
-          </a>
-        </div>
-    </div>
+      </div>
   ) : (
     <Loading />
   );

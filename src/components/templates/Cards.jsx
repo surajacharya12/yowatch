@@ -4,7 +4,7 @@ import noimg from "/noimg.jpg";
 
 export const Cards = ({ data, title }) => {
   return (
-    <div className="w-full flex relative flex-wrap justify-center gap-3 mt-3 bg-[#303030]">
+    <div className="w-full flex relative flex-wrap justify-center gap-3 mt-3 bg-[bg-[#030320]]">
       {data.map((c, i) => (
         <Link
           to={`/${c.mmedia_type || title}/details/${c.id}`}
@@ -22,7 +22,7 @@ export const Cards = ({ data, title }) => {
             }
             alt=""
           />
-          <h1 className="text-[2vw] sm:text-[3vw] w-[80%] m-auto text-center text-zinc-300 mt-3 font-semibold">
+          <h1 className="text-[2vw] sm:text-[3vw] w-[80%] m-auto text-center text-zinc-900 mt-3 font-semibold">
             {c.title || c.original_title || c.name  || c.original_name}
           </h1>
           {c.vote_average>0 && (

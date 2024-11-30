@@ -14,7 +14,7 @@ export const Tvshows = () => {
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
-  document.title = "THE ULTIMATE | tv Shows " + category.toUpperCase();
+  document.title = "Yo Watch | tv Shows " + category.toUpperCase();
 
   const GetTv = async () => {
     try {
@@ -47,11 +47,11 @@ export const Tvshows = () => {
   }, [category]);
 
   return tv.length > 0 ? (
-    <div className=" w-screen h-screen bg-[#303030]">
+    <div className=" w-screen h-screen bg-[#fcfbfb]">
       <div className=" px-5 w-full flex items-center bg-[#303030] ">
         <i
           onClick={() => navigate("/")}
-          className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
+          className="hover:text-[#030320]  hover:bg-lime-100 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
         ></i>
         <h1 className="text-2xl font-semibold text-zinc-300">
           tv <br /><small className="text-zinc-500">({category})</small>

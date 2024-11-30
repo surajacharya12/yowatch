@@ -6,7 +6,7 @@ const Notpage = () => {
     <div className="flex flex-col gap-2 items-center justify-center w-full h-screen bg-black text-white">
       <Link
         to={-1}
-        // onClick={() => Navigate(-1)}
+       
         className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-close-fill absolute top-5 right-16"
       ></Link>
 

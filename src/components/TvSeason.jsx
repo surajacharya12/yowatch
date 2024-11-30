@@ -23,10 +23,6 @@ const TvSeason = () => {
     Getdetails();
   }, []);
     var series = (pathname.split("/")[3]);
-  //   console.log(series_id);
-  //   console.log(details);
-  //   console.log(id);
-  // console.log(series);
   return details ? (
     <div
       style={{
@@ -61,8 +57,7 @@ const TvSeason = () => {
           <div>
             <Link
               to={`/tv/details/${series}`}
-            //   onClick={() => Navigate(-1)}
-              className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-red-800 ri-close-fill absolute top-5 right-16"
+              className="hover:text-[#ffffdd]  hover:bg-black  text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-red-800 ri-close-fill absolute top-5 right-16"
             ></Link>
           </div>
         </div>

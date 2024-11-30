@@ -1,5 +1,5 @@
 
-import loader from '/loading.gif'
+import loader from '/loader.gif'
 export const Loading = () => {
   return (
     <div className='w-full h-full flex items-center justify-center bg-black'>

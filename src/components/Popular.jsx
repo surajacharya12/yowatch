@@ -14,7 +14,7 @@ export const Popular = () => {
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
-  document.title = "THE ULTIMATE | Popular " + category.toUpperCase();
+  document.title = "Yo Watch | Popular " + category.toUpperCase();
 
   const GetPopular = async () => {
     try {
@@ -47,11 +47,11 @@ export const Popular = () => {
   }, [category]);
 
   return popular.length > 0 ? (
-    <div className=" w-screen h-screen bg-[#303030]">
+    <div className=" w-screen h-screen bg-[#fcfbfb]">
       <div className=" px-5 w-full flex items-center bg-[#303030] ">
         <i
           onClick={() => navigate("/")}
-          className="hover:text-[#ffffdd]  hover:bg-lime-500 text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
+          className="hover:text-[#ffffdd]  hover:bg-black  text-3xl font-semibold mr-2 rounded-full mt-1 duration-300 cursor-pointer text-zinc-400 ri-arrow-left-line"
         ></i>
         <h1 className=" w-[20%] text-2xl leading-none mr-3 font-semibold text-zinc-300">
           Popular <br /> <small className="text-zinc-500">({category})</small>
